@@ -1,0 +1,23 @@
+{
+  "name": "Static Website",
+  "version": "0.0.0",
+  "authors": [
+    "Jeremie Parker <jparker@guimiesoft.com>"
+  ],
+  "license": "MIT",
+  "homepage": "http://example.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "twbs/bootstrap-sass#~3.1.1",
+    "jquery": "~2.1.0",
+    "modernizr": "~2.7.2"
+  }
+}

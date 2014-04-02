@@ -1,0 +1,2 @@
+**/vendor/*.js
+**/bower_components/**/*.js

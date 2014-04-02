@@ -1,0 +1,17 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Jonathan LANDMAN -- Project Leader     --
+    Jérémie PARKER   -- Lead Developer     -- @jeremie_parker
+    Guilhem AUGENDRE -- Back-end Developer -- @arcus77
+
+# THANKS
+
+    The awesome H5BP & Gulp Communities
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Normalize.css, jQuery, Modernizr
