@@ -3,13 +3,11 @@
 
 # TEAM
 
-    Jonathan LANDMAN -- Project Leader     --
-    Jérémie PARKER   -- Lead Developer     -- @jeremie_parker
-    Guilhem AUGENDRE -- Back-end Developer -- @arcus77
+    <name> -- <role> -- <twitter>
 
 # THANKS
 
-    The awesome H5BP & Gulp Communities
+		<name>
 
 # TECHNOLOGY COLOPHON
 
