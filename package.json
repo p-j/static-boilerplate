@@ -1,44 +1,47 @@
 {
-	"name": "static-boilerplate",
-	"version": "0.0.0",
-	"description": "static-boilerplate",
-	"main": "gulpfile.js",
-	"dependencies": {},
-	"devDependencies": {
-		"connect": "~2.14.3",
-		"connect-livereload": "~0.3.2",
-		"event-stream": "~3.1.1",
-		"gulp": "~3.6.0",
-		"gulp-autoprefixer": "~0.0.6",
-		"gulp-cache": "~0.1.3",
-		"gulp-clean": "~0.2.4",
-		"gulp-concat": "~2.2.0",
-		"gulp-connect": "~1.1.0",
-		"gulp-debug": "~0.3.0",
-		"gulp-imagemin": "~0.1.5",
-		"gulp-jshint": "~1.5.2",
-		"gulp-livereload": "~1.2.0",
-		"gulp-minify-css": "~0.3.0",
-		"gulp-notify": "~1.2.5",
-		"gulp-rename": "~1.2.0",
-		"gulp-ruby-sass": "~0.4.1",
-		"gulp-uglify": "~0.2.1",
-		"jshint-stylish": "~0.1.5",
-		"open": "~0.0.4",
-		"tiny-lr": "~0.0.5",
-		"underscore": "~1.6.0"
-	},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/p-j/static-boilerplate.git"
-	},
-	"author": "Jérémie PARKER <jparker@guimiesoft.com>",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/p-j/static-boilerplate/issues"
-	},
-	"homepage": "https://github.com/p-j/static-boilerplate"
+  "name": "static-boilerplate",
+  "version": "0.0.0",
+  "description": "static-boilerplate",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "connect": "~2.14.3",
+    "connect-livereload": "~0.3.2",
+    "event-stream": "~3.1.1",
+    "gulp": "~3.6.0",
+    "gulp-autoprefixer": "~0.0.6",
+    "gulp-cache": "~0.1.3",
+    "gulp-clean": "~0.2.4",
+    "gulp-concat": "~2.2.0",
+    "gulp-connect": "~1.1.0",
+    "gulp-debug": "~0.3.0",
+    "gulp-imagemin": "~0.1.5",
+    "gulp-jshint": "~1.5.2",
+    "gulp-livereload": "~1.2.0",
+    "gulp-minify-css": "~0.3.0",
+    "gulp-notify": "~1.2.5",
+    "gulp-rename": "~1.2.0",
+    "gulp-ruby-sass": "~0.4.1",
+    "gulp-uglify": "~0.2.1",
+    "jshint-stylish": "~0.1.5",
+    "open": "~0.0.4",
+    "tiny-lr": "~0.0.5",
+    "underscore": "~1.6.0",
+    "glob": "^3.2.9",
+    "uncss": "^0.8.1",
+    "gulp-uncss": "^0.4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/p-j/static-boilerplate.git"
+  },
+  "author": "Jérémie PARKER <jparker@guimiesoft.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/p-j/static-boilerplate/issues"
+  },
+  "homepage": "https://github.com/p-j/static-boilerplate"
 }

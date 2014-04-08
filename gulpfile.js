@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('underscore'),
+	glob = require('glob'),
 	gulp = require('gulp'),
 	sass = require('gulp-ruby-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
@@ -12,7 +13,8 @@ var _ = require('underscore'),
 	clean = require('gulp-clean'),
 	concat = require('gulp-concat'),
 	cache = require('gulp-cache'),
-	connect = require('gulp-connect');
+	connect = require('gulp-connect'),
+	uncss = require('gulp-uncss');
 
 var config = {
 	src: 'src',
@@ -71,6 +73,9 @@ gulp.task('styles', function () {
 			sourcemap: true,
 			precision: 10,
 			loadPath: ['src/bower_components/']
+		}))
+		.pipe(uncss({
+			html: glob.sync('src/*.html')
 		}))
 		.pipe(autoprefixer('last 3 version'))
 		.pipe(gulp.dest('dist/assets/css'))
