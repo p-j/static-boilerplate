@@ -57,13 +57,13 @@ var bower = {
 // Simple utility function to read JSONish file (require fail on .bowerrc)
 var readJSONFromFile = function(path) {
 	return JSON.parse(fs.readFileSync(path, 'utf8'));
-}
+};
 
-var bower_config = readJSONFromFile(__dirname + '/.bowerrc');
+var bowerConfig = readJSONFromFile(__dirname + '/.bowerrc');
 // Update path with the bower configurated path
 _.each(bower, function (cat, key) {
 	bower[key] = _.map(cat, function (path) {
-		return bower_config.directory + '/' + path;
+		return bowerConfig.directory + '/' + path;
 	});
 });
 
@@ -87,7 +87,7 @@ gulp.task('styles', function () {
 			style: 'expanded',
 			sourcemap: true,
 			precision: 10,
-			loadPath: [bower_config.directory],
+			loadPath: [bowerConfig.directory],
 			compass: true
 		}))
 		.pipe(autoprefixer('last 3 version'))
@@ -140,7 +140,7 @@ gulp.task('images', function () {
 		})))
 		.pipe(connect.reload())
 		.pipe(gulp.dest('dist/assets/img'))
-		.pipe(size());;
+		.pipe(size());
 });
 
 // HTML
