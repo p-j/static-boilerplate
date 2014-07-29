@@ -46,6 +46,8 @@ var config = {
 // **** Prepare Bower's assets ****
 // It is needed if you want to choose which JS components to load and to
 // maintain the correct order since some components may depend on others.
+// You should customize this to your needs.
+// Path are relative to bower's install folder, usually src/bower_components/
 var bower = {
 	fonts: [
 		'bootstrap-sass/vendor/assets/fonts/bootstrap/*',
@@ -69,8 +71,9 @@ var bower = {
 	]
 };
 
+// This reads the bowerrc file to get the correct directory
 var bowerConfig = readJSONFile(__dirname + '/.bowerrc');
-// Update path with the bower configurated path
+// Update path with the configurated path
 _.each(bower, function (cat, key) {
 	bower[key] = _.map(cat, function (filepath) {
 		return bowerConfig.directory + path.sep + filepath;
@@ -113,9 +116,11 @@ gulp.task('styles', function () {
 			imagePath: 'src/images'
 		}))
 
+		// removed unused CSS
 		.pipe(uncss({
 			html: glob.sync('src/html/**/*.html'),
-			ignore: [
+			ignore: [ // Keep some JS dependent CSS from being deleted,
+			          // these are examples, you should configure as needed
 				'.in',
 				'.collapse',
 				'.collapse.in',
@@ -147,6 +152,7 @@ gulp.task('fonts', function () {
 
 // Scripts
 gulp.task('scripts', function () {
+	// Filters IE specific JS that will be loaded via conditional comments
 	var filterIESpecific = filter(['*', '!**/ie/**.js']);
 	return gulp.src(_.flatten([bower.scripts, 'src/scripts/**/*.js']))
 		.pipe(newer('dist/assets/js', '.js'))

@@ -1,7 +1,7 @@
 {
   "name": "static-boilerplate",
-  "version": "0.0.0",
-  "description": "static-boilerplate",
+  "version": "1.0.0",
+  "description": "Static website boilerplate featuring gulp as build tool, boostrap for SASS as graphical framework and using libsass with node-sass for a faster SASS compilation. Also comes with jshint, uncss, etc... Checkout gulpfile.js to learn more about what it can do for you out of the box.",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
