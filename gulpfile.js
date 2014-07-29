@@ -2,9 +2,11 @@
 
 var _        = require('lodash'),
 fs           = require('fs'),
+path         = require('path'),
 glob         = require('glob'),
 gulp         = require('gulp'),
-sass         = require('gulp-ruby-sass'),
+// sass         = require('gulp-ruby-sass'),    // uses Ruby compiler
+sass         = require('gulp-sass'),         // uses C compiler (libsass via node-sass)
 autoprefixer = require('gulp-autoprefixer'),
 minifycss    = require('gulp-minify-css'),
 jshint       = require('gulp-jshint'),
@@ -17,7 +19,20 @@ cache        = require('gulp-cache'),
 connect      = require('gulp-connect'),
 uncss        = require('gulp-uncss'),
 size         = require('gulp-size'),
+filter       = require('gulp-filter'),
+gutil        = require('gulp-util'),
+yaml         = require('js-yaml'),
 newer        = require('gulp-newer');
+
+// Simple utility function to read JSONish file (require fail on .bowerrc)
+var readJSONFile = function(path) {
+	return JSON.parse(fs.readFileSync(path, 'utf8'));
+};
+
+// Simple utility function to read YAML file synchroneously
+var readYAMLFile = function(path) {
+	return yaml.safeLoad(fs.readFileSync(path, 'utf8'));
+};
 
 var config = {
 	src: 'src',   // source directory
@@ -54,22 +69,17 @@ var bower = {
 	]
 };
 
-// Simple utility function to read JSONish file (require fail on .bowerrc)
-var readJSONFromFile = function(path) {
-	return JSON.parse(fs.readFileSync(path, 'utf8'));
-};
-
-var bowerConfig = readJSONFromFile(__dirname + '/.bowerrc');
+var bowerConfig = readJSONFile(__dirname + '/.bowerrc');
 // Update path with the bower configurated path
 _.each(bower, function (cat, key) {
-	bower[key] = _.map(cat, function (path) {
-		return bowerConfig.directory + '/' + path;
+	bower[key] = _.map(cat, function (filepath) {
+		return bowerConfig.directory + path.sep + filepath;
 	});
 });
 
 // Connect & LiveReload server
 gulp.task('connect', connect.server({
-	root: [__dirname + '/' + config.dist],
+	root: [__dirname + path.sep + config.dist],
 	port: config.port,
 	livereload: {
 		port: config.lr.port
@@ -83,20 +93,43 @@ gulp.task('connect', connect.server({
 gulp.task('styles', function () {
 	return gulp.src('src/styles/main.scss')
 		.pipe(newer('dist/assets/css', '.css'))
+
+		// gulp-ruby-sass config
+		// .pipe(sass({
+		// 	style: 'expanded',
+		// 	sourcemap: true,
+		// 	precision: 10,
+		// 	loadPath: [bowerConfig.directory],
+		// 	compass: true
+		// }))
+
+		// gulp-sass config
 		.pipe(sass({
-			style: 'expanded',
-			sourcemap: true,
+			outputStyle: 'expanded',
 			precision: 10,
-			loadPath: [bowerConfig.directory],
-			compass: true
+			sourceComments: 'none',
+			// sourceMap: 'sass',
+			includePaths: [bowerConfig.directory],
+			imagePath: 'src/images'
+		}))
+
+		.pipe(uncss({
+			html: glob.sync('src/html/**/*.html'),
+			ignore: [
+				'.in',
+				'.collapse',
+				'.collapse.in',
+				'.collapsing',
+				'.collapsed',
+				'.navbar-collapse',
+				'.navbar-collapse.in',
+				'.navbar-collapse.collapse'
+			]
 		}))
 		.pipe(autoprefixer('last 3 version'))
 		.pipe(gulp.dest('dist/assets/css'))
 		.pipe(rename({
 			suffix: '.min'
-		}))
-		.pipe(uncss({
-			html: glob.sync('src/html/**/*.html')
 		}))
 		.pipe(minifycss())
 		.pipe(connect.reload())
@@ -114,11 +147,14 @@ gulp.task('fonts', function () {
 
 // Scripts
 gulp.task('scripts', function () {
+	var filterIESpecific = filter(['*', '!**/ie/**.js']);
 	return gulp.src(_.flatten([bower.scripts, 'src/scripts/**/*.js']))
 		.pipe(newer('dist/assets/js', '.js'))
+		.pipe(filterIESpecific)
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter('jshint-stylish'))
 		.pipe(concat('main.js'))
+		.pipe(filterIESpecific.restore())
 		.pipe(gulp.dest('dist/assets/js'))
 		.pipe(rename({
 			suffix: '.min'
