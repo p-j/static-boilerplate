@@ -1,3 +1,5 @@
+[![Dependency Status](https://gemnasium.com/p-j/static-boilerplate.svg)](https://gemnasium.com/p-j/static-boilerplate)
+
 Static Site Boilerplate
 ==================
 
