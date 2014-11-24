@@ -16,9 +16,9 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "twbs/bootstrap-sass#~3.1.1",
     "jquery": "^2.1.0",
     "modernizr": "^2.7.2",
-    "font-awesome": "^4.0.3"
+    "font-awesome": "^4.0.3",
+    "bootstrap-sass-official": "^3.2.0"
   }
 }
