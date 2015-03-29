@@ -1,54 +1,54 @@
 {
-  "name": "static-boilerplate",
-  "version": "1.0.0",
-  "description": "Static website boilerplate featuring gulp as build tool, boostrap for SASS as graphical framework and using libsass with node-sass for a faster SASS compilation. Also comes with jshint, uncss, etc... Checkout gulpfile.js to learn more about what it can do for you out of the box.",
-  "main": "gulpfile.js",
-  "dependencies": {},
-  "devDependencies": {
-    "connect": "^2.14.5",
-    "connect-livereload": "^0.3.2",
-    "event-stream": "^3.1.7",
-    "glob": "^3.2.11",
-    "gulp": "^3.6.2",
-    "gulp-autoprefixer": "^0.0.8",
-    "gulp-cache": "^0.1.11",
-    "gulp-clean": "^0.2.4",
-    "gulp-concat": "^2.2.0",
-    "gulp-connect": "^1.1.1",
-    "gulp-debug": "^0.3.1",
-    "gulp-filter": "^1.0.0",
-    "gulp-imagemin": "^0.1.5",
-    "gulp-jshint": "^1.5.6",
-    "gulp-livereload": "^1.2.0",
-    "gulp-minify-css": "^0.3.7",
-    "gulp-newer": "^0.3.0",
-    "gulp-notify": "^1.2.6",
-    "gulp-rename": "^1.2.0",
-    "gulp-ruby-sass": "^0.4.3",
-    "gulp-sass": "^0.7.2",
-    "gulp-size": "^0.3.1",
-    "gulp-uglify": "^0.2.1",
-    "gulp-uncss": "^0.4.5",
-    "gulp-util": "^3.0.0",
-    "js-yaml": "^3.1.0",
-    "jshint-stylish": "^0.1.5",
-    "lodash": "^2.4.1",
-    "open": "^0.0.5",
-    "tiny-lr": "^0.0.9",
-    "uncss": "^0.8.3",
-    "underscore": "^1.6.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/p-j/static-boilerplate.git"
-  },
-  "author": "Jérémie PARKER <jparker@guimiesoft.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/p-j/static-boilerplate/issues"
-  },
-  "homepage": "https://github.com/p-j/static-boilerplate"
+	"name": "static-boilerplate",
+	"version": "1.0.0",
+	"description": "Static website boilerplate featuring gulp as build tool, boostrap for SASS as graphical framework and using libsass with node-sass for a faster SASS compilation. Also comes with jshint, uncss, etc... Checkout gulpfile.js to learn more about what it can do for you out of the box.",
+	"main": "gulpfile.js",
+	"dependencies": {},
+	"devDependencies": {
+		"connect": "^2.14.5",
+		"connect-livereload": "^0.3.2",
+		"del": "^1.1.1",
+		"event-stream": "^3.1.7",
+		"glob": "^3.2.11",
+		"gulp": "^3.6.2",
+		"gulp-autoprefixer": "^0.0.8",
+		"gulp-cache": "^0.1.11",
+		"gulp-concat": "^2.2.0",
+		"gulp-connect": "^1.1.1",
+		"gulp-debug": "^0.3.1",
+		"gulp-filter": "^1.0.0",
+		"gulp-imagemin": "^0.1.5",
+		"gulp-jshint": "^1.5.6",
+		"gulp-livereload": "^1.2.0",
+		"gulp-minify-css": "^0.3.7",
+		"gulp-newer": "^0.3.0",
+		"gulp-notify": "^1.2.6",
+		"gulp-rename": "^1.2.0",
+		"gulp-ruby-sass": "^0.4.3",
+		"gulp-sass": "^0.7.2",
+		"gulp-size": "^0.3.1",
+		"gulp-uglify": "^0.2.1",
+		"gulp-uncss": "^0.4.5",
+		"gulp-util": "^3.0.0",
+		"js-yaml": "^3.1.0",
+		"jshint-stylish": "^0.1.5",
+		"lodash": "^2.4.1",
+		"open": "^0.0.5",
+		"tiny-lr": "^0.0.9",
+		"uncss": "^0.8.3",
+		"underscore": "^1.6.0"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/p-j/static-boilerplate.git"
+	},
+	"author": "Jérémie PARKER <jparker@guimiesoft.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/p-j/static-boilerplate/issues"
+	},
+	"homepage": "https://github.com/p-j/static-boilerplate"
 }
